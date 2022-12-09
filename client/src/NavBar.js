@@ -1,6 +1,6 @@
-   import React from 'react'
-   import { NavLink} from "react-router-dom";
+    import { NavLink} from "react-router-dom";
    import './index.css'
+   import React from "react";
    
    const linkStyles = {
     display: "inline-block",
@@ -20,6 +20,7 @@
         }
       });
     }
+
     return (
       <div className='nav'>
         {/* <NavLink
@@ -38,7 +39,7 @@
         Add Book
         </NavLink>
         <NavLink
-          to="/new"
+          to="/"
           exact
           style={linkStyles}
          

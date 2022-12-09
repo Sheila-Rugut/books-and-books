@@ -10,8 +10,7 @@ export default function NewBook({user}) {
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  const queryString = require('querystring');
-  
+ 
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
@@ -29,7 +28,7 @@ export default function NewBook({user}) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        navigate(`/Search?${queryString}`);
+        navigate("/");
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

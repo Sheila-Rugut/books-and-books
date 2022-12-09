@@ -27,11 +27,6 @@ function App() {
      Welcome to Books and Books
       <Router>
       <NavBar user={user} setUser={setUser}/>
-      {/* <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/sign-up" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-      </Routes> */}
         <main>
         <Routes>
           <Route path='/new' element={ <NewBook user={user} />} />

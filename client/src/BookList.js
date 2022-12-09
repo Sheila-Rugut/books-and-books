@@ -7,21 +7,25 @@ export default function BookList() {
   useEffect(() => {
     fetch("/books")
       .then((r) => r.json())
-      .then(setBooks);
+      .then((books) => setBooks(books));
   }, []);
   return (
     <div>
+    
         {books.length > 0 ? (
         books.map((book) => (
           <div key={book.id}>
             <div>
               <h2>{book.title}</h2>
               <p>
-                <em>Author: {book.author} </em>
-                <em>Genre: {book.genre}</em> 
+                Author: {book.author}
+              </p>
+              <p>
+              Genre: {book.genre} 
               </p>
               <p>Synopsis: {book.synopsis}</p>
             </div>
+            
           </div>
         ))
       ) : (

@@ -15,11 +15,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_record_invalid_response
         user = User.find_by(id: session[:user_id])
         if user
           book = Book.create!(user_id: user.id, title: params[:title], author: params[:author], genre: params[:genre], synopsis: params[:synopsis])
-          if book.save
-            render json: book, include: :user, status: :created
-          else
-            render json: { errors: book.errors }, status: :unprocessable_entity
-          end
+          render json: book, status: :created
         else
           render json: { errors: ["Not authorized"] }, status: :unauthorized
         end
