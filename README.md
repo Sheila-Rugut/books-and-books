@@ -6,7 +6,7 @@ Books and Books is a book management app
 
 ## Description
 Books and Books app gives the user access to their entire book catalog. Books and Books can be used by a group of friends to share the books info that one thinks is interesting. It allows the user to add a book and delete it.
-![My Image](my-image.jpg)
+![My Image](images/appimage.png)
 
 ### Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".To do that:
