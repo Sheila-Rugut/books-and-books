@@ -1,14 +1,25 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function BookList() {
+export default function BookList({ onDeleteBook}) {
   const [books, setBooks] = useState([]);
-
+  
   useEffect(() => {
     fetch("/books")
       .then((r) => r.json())
       .then((books) => setBooks(books));
   }, []);
+
+  function handleDeleteClick() {
+    fetch("/books", {
+      method: "DELETE",
+    }).then((r) => {
+      if (r.ok) {
+        // onDeleteBook(books);
+        console.log(r)
+      }
+    });
+  }
   return (
     <div>
     <div>
@@ -25,7 +36,7 @@ export default function BookList() {
               </p>
               <p>Synopsis: {book.synopsis}</p>
             </div>
-            <button className="del-btn" >
+            <button className="del-btn" onClick={handleDeleteClick} >
         Delete Book
       </button>
           </div>

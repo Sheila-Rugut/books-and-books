@@ -11,6 +11,8 @@ import NewBook from './NewBook';
 
 function App() {
   const [user, setUser] = useState(null);
+  const [books, setBooks] = useState([]);
+
   useEffect(() => {
     fetch('/me').then((r) => {
       if (r.ok) {
@@ -21,6 +23,11 @@ function App() {
 
   if (!user) return <Login onLogin={setUser} />;
 
+  function handleDelete(deleteBook) {
+    const updatedBooks = books.filter((book) => book.id !== deleteBook.id);
+    setBooks(updatedBooks);
+  }
+
   return (
     <div className="App">
      
@@ -30,7 +37,11 @@ function App() {
         <main>
         <Routes>
           <Route path='/new' element={ <NewBook user={user} />} />
-          <Route path="/" exact element={ <BookList/> } />
+          <Route path="/" exact element={ 
+          <BookList 
+          books={books}
+          onDeleteBook={handleDelete}
+          /> } />
           
         </Routes>
       </main>

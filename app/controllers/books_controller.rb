@@ -20,6 +20,16 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_record_invalid_response
           render json: { errors: ["Not authorized"] }, status: :unauthorized
         end
       end
+      def destroy
+        book = Book.find_by(id: params[:id])
+        if book
+          book.destroy
+          head :no_content
+        else
+          render json: { error: "Book not found" }, status: :not_found
+        end
+      end
+      
     
       private
     
