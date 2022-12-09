@@ -11,7 +11,7 @@ export default function BookList() {
   }, []);
   return (
     <div>
-    
+    <div>
         {books.length > 0 ? (
         books.map((book) => (
           <div key={book.id}>
@@ -25,7 +25,9 @@ export default function BookList() {
               </p>
               <p>Synopsis: {book.synopsis}</p>
             </div>
-            
+            <button className="del-btn" >
+        Delete Book
+      </button>
           </div>
         ))
       ) : (
@@ -36,6 +38,8 @@ export default function BookList() {
           </button>
         </>
       )}
+      </div>
+     
     </div>
   )
 }
